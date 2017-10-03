@@ -1,0 +1,21 @@
+            <section class="section publications-section">
+                <h2 class="section-title"><i class="fa {{ .Site.Params.publications.icon }}"></i>{{ .Site.Params.publications.title }}</h2>
+
+                <div class="intro">
+                    <p>{{ with .Site.Params.publications.intro }}{{ . | markdownify }}{{ end }}</p>
+                </div><!--//intro-->
+				{{ range .Site.Params.pubs.list }}
+                <div class="item">
+                    <div class="meta">
+                        <div class="upper-row">
+                            <h3 class="job-title">{{ .title }}</h3>
+                        </div><!--//upper-row-->
+                        <div class="company">{{ .authors}}<br> {{ .venue }} {{ .date }}</div>
+                    </div><!--//meta-->
+                    <div class="details">
+                        <p>{{ with .details }}{{ . | markdownify }}{{ end }}</p>
+                    </div><!--//details-->
+                </div><!--//item-->
+				{{ end }}
+
+            </section><!--//section-->
